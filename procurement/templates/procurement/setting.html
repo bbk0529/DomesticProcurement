@@ -1,0 +1,87 @@
+{%load static %}
+<head>
+    {% include "../subtemplate/head.html" %}
+</head>
+<style>
+
+
+
+
+</style>
+<body>
+
+    <div class="content mt-3">
+        <div class="row">
+        <div class="col-md-12">
+        <div class="animated fadeIn">
+
+
+            <div class="col-md-2">
+                <img src="{% static 'images/festologo.jpg' %}">
+            </div>
+            <div class="col-md-10">
+            <div class="pull-right">
+                {% if user.is_authenticated %}
+                        Hi! {{ user.username }}
+                        <i class="fa fa-user"></i><span class="badge"><a href="{% url 'logout' %}">logout</a></span>
+                        {{ipAddress}}
+
+                {%else%}
+                    <i class="fa fa-user"></i><span class="badge"><a href="{% url 'login' %}">login</a></span>
+                {% endif %}
+            </div>
+            </div>
+        <span id="alert_message"></span>
+        <div class="card">
+            <div class="card-body">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="list"  href="/">List</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="approval"  href="/approvalPlan" >Approval</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="changeLog" href="/changeLog">ChangeLog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="setting" href="/setting">Setting</a>
+                        </li>
+
+                    </ul>
+
+                <div class="tab-content pl-3 p-1" id="myTabContent">
+                    <div class="tab-pane fade show active">
+                        <h3>Setting</h3>
+                        <p>Extract all data / Import Data</p>
+                    </div>
+
+                    <h4><i class="fa fa-cloud-download"></i>Data Export</h4>
+                    <a href="{% url 'export_data_xls' %}"><button type="button" class="btn btn-outline-secondary">&nbsp;Export DATA </button></a>
+                    <a href="{% url 'export_log_xls' %}"><button type="button" class="btn btn-outline-secondary">&nbsp;Export ChangeLog</button></a>
+
+                    <br>
+                    <br><br><br><br>
+
+                    <h4><i class="fa fa-cloud-upload"></i>Data Import</h4>
+                    {%include "procurement/upload.html" %}
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+</body>
+
+
+
+</html>

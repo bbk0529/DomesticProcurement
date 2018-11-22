@@ -1,0 +1,136 @@
+{% load static %}
+<style>
+
+#import{
+    cursor:pointer;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border: 2px solid #ddf;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #ddf transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
+
+
+    <form method="post" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      <input type="file" name="myfile">
+      <button type="submit" class="btn btn-outline-secondary">Upload</button>
+    </form>
+
+      {% if uploaded_file_url %}
+      File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a>
+      <span id="import"><i class="fa fa-upload"></i>Execute Import</span>
+      <div class="lds-ring" hidden><div></div><div></div><div></div><div></div></div></p>
+                <span class="bg-flat-color-1 text-light">All data will be erased. Please download data first before import new data.</span>
+      {% endif %}
+
+
+<!-- <a href="{% url 'import_data_xls' %}"> -->
+
+<!-- </a> -->
+
+
+
+<div id="header"></div>
+
+<!-- <script src="{% static 'assets/js/scm/upload.js' %}"></script> -->
+
+
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+<script src="{% static 'assets/js/vendor/jquery-2.1.4.min.js' %}"></script>
+
+
+
+
+
+<script>
+    $('#import').click(function(){
+        $('.lds-ring').prop('hidden', false)
+        console.log("{{uploaded_file_url}}")
+        $.ajax({
+            url : "import_data_xls",
+            type : "GET",
+            data: {
+                'uploaded_file_url' : "{{uploaded_file_url}}"
+            },
+
+            success : function(data) {
+                console.log("successfully communicated with Server");
+                $('.lds-ring').prop('hidden', true)
+
+              $('#header').html(''+
+              '<div class="sufee-alert alert with-close alert-secondary alert-dismissible fade show" id="alert_message">'+
+                  '<span class="badge badge-pill badge-primary">Success</span>'+
+                  'Assay No : ' +
+                   "{{uploaded_file_url}}" +
+                      ' Import has been successfully saved.'+
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+                      '<span aria-hidden="true">&times;</span>'+
+                  '</button>'+
+              '</div>'
+                )
+              window.setTimeout(function() {
+                  $("#alert_message").fadeTo(300, 0).slideUp(300, function(){
+                    $(this).remove();
+                  });
+              }, 2000);
+
+          },
+          error :function(){
+              $('#header').html(''+
+              '<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show" id="alert_message">'+
+                  '<span class="badge badge-pill badge-danger">Failure</span>'+
+                      'Import has NOT been successfully saved. Please contat administrator.'+
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+                      '<span aria-hidden="true">&times;</span>'+
+                  '</button>'+
+              '</div>'
+              )
+              window.setTimeout(function() {
+                  $("#alert_message").fadeTo(300, 0).slideUp(300, function(){
+                    $(this).remove();
+                  });
+              }, 2000);
+              $('.lds-ring').prop('hidden', true)
+          }
+        }) //end of $.ajax
+})
+
+</script>

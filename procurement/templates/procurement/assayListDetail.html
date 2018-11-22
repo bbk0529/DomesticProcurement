@@ -1,0 +1,189 @@
+{%load static %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="row form-group">
+          <div class="col-1"><label for="text-input" class=" form-control-label"  >SA No.</label></div>
+          <div class="col-5">
+            <input type="text" id="text-input" name="SA_No" value="{{ Assay.SA_No}}" disabled="True" class="form-control">
+          </div>
+
+          <div class="col-1"><label for="text-input" class=" form-control-label">Delivery</label></div>
+          <div class="col-2"><input type="text" id="text-input" name="Date"  disabled="True" value="{{ Assay.Date}}"  class="form-control query"></div>
+
+          <div class="col-1"><label for="text-input" class=" form-control-label">SuppliersNo</label></div>
+          <div class="col-2"><input type="text" id="text-input" name="Number_of_suppliers" disabled="True" value="{{Assay.Number_of_suppliers}}" class="form-control query"></div>
+        </div>
+<div class="row form-group">
+    <div class="col col-md-1"><label for="text-input" class=" form-control-label">Type</label></div>
+    <div class="col-5"><input type="text" id="text-input" name="Type"
+      {% ifnotequal Assay.Type 'nan' %}
+        value="{{ Assay.Type}}"
+      {% endifnotequal %}
+      disabled class="form-control query"></div>
+        <div class="col col-md-1"><label for="text-input" class=" form-control-label">Updated</label></div>
+        <div class="col-2 col-md-2"><input type="text" id="text-input" name="Updated_date" disabled="True" value="{{Assay.Updated_date}}" class="form-control query"></div>
+        <div class="col col-md-1"><label for="text-input" class=" form-control-label">Category</label></div>
+        <div class="col-2 col-md-2"><input type="text" id="Category" name="Category" disabled="True" value="{{Assay.Category}}" class="form-control query"></div>
+
+</div>
+        <div class="row form-group">
+          <div class="col-md-1"><label for="text-input" class=" form-control-label">Details1</label></div>
+          <div class="col-md-11"><input type="text" id="text-input" name="Details_1" disabled="True"
+              {% ifnotequal Assay.Details_1 'nan' %}
+                value="{{ Assay.Details_1}}"
+              {% endifnotequal %}
+            placeholder="-" class="form-control query">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-1"><label for="text-input" class=" form-control-label">Details2</label></div>
+          <div class="col-md-11"><input type="text" id="text-input" name="Details_2" disabled="True"
+              {% ifnotequal Assay.Details_2 'nan' %}
+                value="{{ Assay.Details_2}}"
+              {% endifnotequal %}
+            placeholder="-" class="form-control query">
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">List-1</th>
+            <th scope="col">List-2</th>
+        </tr>
+        </thead>
+        <tbody id="supplier">
+        {% if Assay.Supplier1 %}
+        <tr>
+          <th scope="row">1</th>
+          <td>{{Assay.Supplier1}}</td>
+          <td>{{Assay.Supplier1_Qty}}</td>
+          <td>
+              {%ifnotequal request.user.username 'viewer2'%}
+                {{Assay.Supplier1_Final_Unit_Price}}
+              {%endifnotequal%}
+          </td>
+          <td>{{Assay.Supplier1_Fabricating_Goods}}</td>
+          <td>{{Assay.Supplier1_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Assay.Supplier2 %}
+        <tr>
+          <th scope="row">2</th>
+          <td>{{Assay.Supplier2}}</td>
+          <td>{{Assay.Supplier2_Qty}}</td>
+          <td>
+              {%ifnotequal request.user.username 'viewer2'%}
+                {{Assay.Supplier2_Final_Unit_Price}}
+              {%endifnotequal%}
+          </td>
+          <td>{{Assay.Supplier2_Fabricating_Goods}}</td>
+          <td>{{Assay.Supplier2_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Assay.Supplier3 %}
+        <tr>
+          <th scope="row">3</th>
+          <td>{{Assay.Supplier3}}</td>
+          <td>{{Assay.Supplier3_Qty}}</td>
+          <td>
+              {%ifnotequal request.user.username 'viewer2'%}
+                {{Assay.Supplier3_Final_Unit_Price}}
+              {%endifnotequal%}
+          </td>
+          <td>{{Assay.Supplier3_Fabricating_Goods}}</td>
+          <td>{{Assay.Supplier3_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Assay.Supplier4 %}
+        <tr>
+          <th scope="row">4</th>
+          <td>{{Assay.Supplier4}}</td>
+          <td>{{Assay.Supplier4_Qty}}</td>
+          <td>
+              {%ifnotequal request.user.username 'viewer2'%}
+                {{Assay.Supplier4_Final_Unit_Price}}
+              {%endifnotequal%}
+          </td>
+          <td>{{Assay.Supplier4_Fabricating_Goods}}</td>
+          <td>{{Assay.Supplier4_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Assay.Supplier5 %}
+        <tr>
+          <th scope="row">5</th>
+          <td>{{Assay.Supplier5}}</td>
+          <td>{{Assay.Supplier5_Qty}}</td>
+          <td>
+              {%ifnotequal request.user.username 'viewer2'%}
+                {{Assay.Supplier5_Final_Unit_Price}}
+              {%endifnotequal%}
+          </td>
+          <td>{{Assay.Supplier5_Fabricating_Goods}}</td>
+          <td>{{Assay.Supplier5_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Assay.Supplier6 %}
+        <tr>
+          <th scope="row">6</th>
+            <td>{{Assay.Supplier6}}</td>
+            <td>{{Assay.Supplier6_Qty}}</td>
+            <td>
+                {%ifnotequal request.user.username 'viewer2'%}
+                  {{Assay.Supplier6_Final_Unit_Price}}
+                {%endifnotequal%}
+            </td>
+            <td>{{Assay.Supplier6_Fabricating_Goods}}</td>
+            <td>{{Assay.Supplier6_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Assay.Supplier7 %}
+        <tr>
+          <th scope="row">7</th>
+            <td>{{Assay.Supplier7}}</td>
+            <td>{{Assay.Supplier7_Qty}}</td>
+            <td>
+                {%ifnotequal request.user.username 'viewer2'%}
+                  {{Assay.Supplier7_Final_Unit_Price}}
+                {%endifnotequal%}
+            </td>
+            <td>{{Assay.Supplier7_Fabricating_Goods}}</td>
+            <td>{{Assay.Supplier7_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+
+        {% if Assay.Supplier8 %}
+        <tr>
+          <th scope="row">8</th>
+            <td>{{Assay.Supplier8}}</td>
+            <td>{{Assay.Supplier8_Qty}}</td>
+            <td>
+                {%ifnotequal request.user.username 'viewer2'%}
+                  {{Assay.Supplier8_Final_Unit_Price}}
+                {%endifnotequal%}
+            </td>
+            <td>{{Assay.Supplier8_Fabricating_Goods}}</td>
+            <td>{{Assay.Supplier8_Modification_of_free_offerd_item}}</td>
+        </tr>
+        {% endif %}
+
+        </tbody>
+        </table>
+    </div>
+</div>
