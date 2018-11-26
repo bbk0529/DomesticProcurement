@@ -29,41 +29,38 @@
 </div>
         <div class="row form-group">
           <div class="col-md-1"><label for="text-input" class=" form-control-label">Details1</label></div>
-          <div class="col-md-11"><input type="text" id="text-input" name="Details_1" disabled="True"
-              {% ifnotequal Assay.Details_1 'nan' %}
-                value="{{ Assay.Details_1}}"
-              {% endifnotequal %}
-            placeholder="-" class="form-control query">
+          <div class="col-md-11">
+              <textarea id="text-input" name="Details_1" disabled="True" class="form-control query" rows=5>{% ifnotequal Assay.Details_1 'nan' %}{{ Assay.Details_1}}{% endifnotequal %}</textarea>
           </div>
         </div>
         <div class="row form-group">
           <div class="col-md-1"><label for="text-input" class=" form-control-label">Details2</label></div>
-          <div class="col-md-11"><input type="text" id="text-input" name="Details_2" disabled="True"
-              {% ifnotequal Assay.Details_2 'nan' %}
-                value="{{ Assay.Details_2}}"
-              {% endifnotequal %}
-            placeholder="-" class="form-control query">
+          <div class="col-md-11">
+              <textarea id="text-input" name="Details_2" disabled="True" class="form-control query" rows=5>{% ifnotequal Assay.Details_2 'nan' %}{{ Assay.Details_2}}{% endifnotequal %}</textarea>
           </div>
         </div>
     </div>
 </div>
+
 
 <div class="row">
     <div class="col-12">
         <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Supplier Name</th>
-            <th scope="col">Qty</th>
-            <th scope="col">Unit Price</th>
-            <th scope="col">List-1</th>
-            <th scope="col">List-2</th>
+            <th scope="col" style="width:5%">#</th>
+            <th scope="col" style="width:8%">Supplier Name</th>
+            <th scope="col" style="width:8%">Qty</th>
+            <th scope="col" style="width:8%">Unit Price</th>
+            <th scope="col" style="width:20%">List-1</th>
+            <th scope="col" style="width:20%">List-2</th>
+
         </tr>
         </thead>
         <tbody id="supplier">
-        {% if Assay.Supplier1 %}
-        <tr>
+        {% if Assay.Supplier1 or Assay.Supplier1_Fabricating_Goods or Assay.Supplier1_Modification_of_free_offerd_item %}
+
+        <tr bgcolor="eeeeee">
           <th scope="row">1</th>
           <td>{{Assay.Supplier1}}</td>
           <td>{{Assay.Supplier1_Qty}}</td>
@@ -77,7 +74,7 @@
         </tr>
         {% endif %}
 
-        {% if Assay.Supplier2 %}
+        {% if Assay.Supplier2 or Assay.Supplier2_Fabricating_Goods or Assay.Supplier2_Modification_of_free_offerd_item %}
         <tr>
           <th scope="row">2</th>
           <td>{{Assay.Supplier2}}</td>
@@ -92,8 +89,8 @@
         </tr>
         {% endif %}
 
-        {% if Assay.Supplier3 %}
-        <tr>
+        {% if Assay.Supplier3 or Assay.Supplier3_Fabricating_Goods or Assay.Supplier3_Modification_of_free_offerd_item %}
+        <tr bgcolor="eeeeee">
           <th scope="row">3</th>
           <td>{{Assay.Supplier3}}</td>
           <td>{{Assay.Supplier3_Qty}}</td>
@@ -107,7 +104,7 @@
         </tr>
         {% endif %}
 
-        {% if Assay.Supplier4 %}
+        {% if Assay.Supplier4 or Assay.Supplier4_Fabricating_Goods or Assay.Supplier4_Modification_of_free_offerd_item %}
         <tr>
           <th scope="row">4</th>
           <td>{{Assay.Supplier4}}</td>
@@ -122,8 +119,8 @@
         </tr>
         {% endif %}
 
-        {% if Assay.Supplier5 %}
-        <tr>
+        {% if Assay.Supplier5 or Assay.Supplier5_Fabricating_Goods or Assay.Supplier5_Modification_of_free_offerd_item %}
+        <tr bgcolor="eeeeee">
           <th scope="row">5</th>
           <td>{{Assay.Supplier5}}</td>
           <td>{{Assay.Supplier5_Qty}}</td>
@@ -137,7 +134,7 @@
         </tr>
         {% endif %}
 
-        {% if Assay.Supplier6 %}
+        {% if Assay.Supplier6 or Assay.Supplier6_Fabricating_Goods or Assay.Supplier6_Modification_of_free_offerd_item %}
         <tr>
           <th scope="row">6</th>
             <td>{{Assay.Supplier6}}</td>
@@ -152,8 +149,8 @@
         </tr>
         {% endif %}
 
-        {% if Assay.Supplier7 %}
-        <tr>
+        {% if Assay.Supplier7 or Assay.Supplier7_Fabricating_Goods or Assay.Supplier7_Modification_of_free_offerd_item %}
+        <tr bgcolor="eeeeee">
           <th scope="row">7</th>
             <td>{{Assay.Supplier7}}</td>
             <td>{{Assay.Supplier7_Qty}}</td>
@@ -168,7 +165,7 @@
         {% endif %}
 
 
-        {% if Assay.Supplier8 %}
+        {% if Assay.Supplier8 or Assay.Supplier8_Fabricating_Goods or Assay.Supplier8_Modification_of_free_offerd_item %}
         <tr>
           <th scope="row">8</th>
             <td>{{Assay.Supplier8}}</td>

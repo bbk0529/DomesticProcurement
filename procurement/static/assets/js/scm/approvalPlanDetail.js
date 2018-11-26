@@ -41,6 +41,8 @@ $(function(){
       console.log('Supplier1_1 input')
       supplierDetailMath(1,1);
       copyFromDetail(1,1)
+
+
     });
     $('.Supplier1_2').on('input', function () {
       supplierDetailMath(1,2);
@@ -371,24 +373,81 @@ $(function(){
 
 
 function supplierDetailMath(supplierNo, detailNo){
-    console.log('supplierDetailMath')
+    // console.log('supplierDetailMath')
     $('#negoSupplier' + supplierNo + '_' + detailNo).text(
-        Math.round((
-            (parseInt($('#quotValueSupplier' + supplierNo +'_' + detailNo).val())
-            - parseInt($('#finalValueSupplier'  + supplierNo + '_'+ detailNo).val())
-            )
-            / (parseInt($('#quotValueSupplier' + supplierNo + '_' + detailNo).val())) * 100
-        ), 2
+        Math.round(
+            (
+                (parseInt($('#quotValueSupplier' + supplierNo +'_' + detailNo).val().replace(/,/g,''))
+                - parseInt($('#finalValueSupplier'  + supplierNo + '_'+ detailNo).val().replace(/,/g,''))
+                ) /
+                parseInt(
+                    $('#quotValueSupplier' + supplierNo + '_' + detailNo).val().replace(/,/g,'')
+                ) * 100
+
+            )*100
+        )/100
+    );
+
+      $('#quotTotalValueSupplier'+ supplierNo + '_'+detailNo).text(
+        (parseInt($('#quotValueSupplier' + supplierNo +'_' + detailNo).val().replace(/,/g,''))
+            *  (parseInt($('#qtySupplier'+ supplierNo +'_'+detailNo).val().replace(/,/g,'')))
+        ) .toLocaleString()
+
+      );
+      $('#finalTotalValueSupplier'+supplierNo+'_'+detailNo).text(
+        (parseInt($('#finalValueSupplier' + supplierNo +'_' + detailNo).val().replace(/,/g,''))
+            *  (parseInt($('#qtySupplier'+ supplierNo +'_'+detailNo).val().replace(/,/g,'')))
+        ).toLocaleString()
+      );
+
+
+
+
+
+//Automatic Comma for 3 digitis
+
+
+      $('#qtySupplier' + supplierNo +'_' + detailNo).val(
+          parseInt(
+              $('#qtySupplier' + supplierNo +'_' + detailNo)
+              .val()
+              .replace(/,/g,"")
+          ).toLocaleString()
+      )
+
+      if($('#qtySupplier' + supplierNo +'_' + detailNo).val()=='NaN'){
+          $('#qtySupplier' + supplierNo +'_' + detailNo).val('')
+      }
+
+
+
+      $('#quotValueSupplier' + supplierNo +'_' + detailNo).val(
+           parseInt(
+              $('#quotValueSupplier' + supplierNo +'_' + detailNo)
+              .val()
+              .replace(/,/g,"")
+           ).toLocaleString()
+      )
+
+      if($('#quotValueSupplier' + supplierNo +'_' + detailNo).val()=='NaN'){
+          $('#quotValueSupplier' + supplierNo +'_' + detailNo).val('')
+      }
+
+
+
+    $('#finalValueSupplier' + supplierNo +'_' + detailNo).val(
+
+        parseInt(
+            $('#finalValueSupplier' + supplierNo +'_' + detailNo)
+            .val()
+            .replace(/,/g,"")
+        ).toLocaleString()
     )
-  );
 
-  $('#quotTotalValueSupplier'+ supplierNo + '_'+detailNo).text(
-    (parseInt($('#quotValueSupplier' + supplierNo +'_' + detailNo).val()) *  (parseInt($('#qtySupplier'+ supplierNo +'_'+detailNo).val())))
-  );
-  $('#finalTotalValueSupplier'+supplierNo+'_'+detailNo).text(
-    (parseInt($('#finalValueSupplier' + supplierNo +'_' + detailNo).val()) *  (parseInt($('#qtySupplier'+ supplierNo +'_'+detailNo).val())))
-  );
 
+    if($('#finalValueSupplier' + supplierNo +'_' + detailNo).val()=='NaN'){
+        $('#finalValueSupplier' + supplierNo +'_' + detailNo).val('')
+    }
 }
 
 
@@ -400,6 +459,9 @@ function copyFromDetail(supplierNo, detailNo){
     $('#Supplier'+ supplierNo +'_Final_Unit_Price').text($('#finalValueSupplier'+ supplierNo +'_' + detailNo).val())
     $('#supplierFinalTotalValue'+ supplierNo).text($('#finalTotalValueSupplier'+ supplierNo +'_' + detailNo).text())
     $('#supplier'+ supplierNo +'Nego').text($('#negoSupplier'+ supplierNo +'_' + detailNo).text())
+
+    // theNumber=theNumber.toLocaleString();
+    // console.log(theNumber);
 }
 
 $('textarea').each(function () {

@@ -3,21 +3,22 @@
                 <div class="row">
                   <strong>Supplier8 Detail</strong>
                 </div>
+
       </div>
+
       <div class="card-body card-block"  id="detailSupplier8"
-      {% if not Assay.Supplier8 %}
-        hidden
-      {% endif %}
+          {% if not Assay.Supplier8 %}
+            hidden
+          {% endif %}
       >
                 <div class="row form-group">
                   <div class="col-3"><label for="text-input" class=" form-control-label"  >Quotation Info.2</label></div>
                   <div class="col-9">
-                    <input type="radio" name="8" id="singleSupplier8"> <label for="singleSupplier8">Single</label>
-                    <input type="radio" name="8" checked id="multipleSupplier8"> <label for="multipleSupplier8"> Multiple</label>
+                    <input type="radio" name="1" id="singleSupplier8"> <label for="singleSupplier8">Single</label>
+                    <input type="radio" name="1" checked id="multipleSupplier8"> <label for="multipleSupplier8"> Multiple</label>
 
 
                     <select class="form-control-sm form-control" id="singleReasonSupplier8" hidden>
-
                         <option>기존과 유사한 경우 또는 동일 특성의 제품의 경우 </option>
                         <option>고객 긴급 요청으로 인한 선진행의 경우</option>
                         <option>국내 독점 공급사 또는 사양이 지정된 경우</option>
@@ -30,10 +31,11 @@
                     </select>
                   </div>
                 </div>
+
                 <div class="row form-group">
                   <div class="col-3"><label for="text-input" class=" form-control-label">List-1[Fabricating, Goods]</label></div>
                   <div class="col-9">
-                      <textarea type="text" id="Supplier8_Fabricating_Goods" class="form-control">{{Assay.Supplier8_Fabricating_Goods}}</textarea>
+                      <textarea id="Supplier8_Fabricating_Goods" class="form-control">{{Assay.Supplier8_Fabricating_Goods}}</textarea>
 
                   </div>
                 </div>
@@ -45,7 +47,7 @@
                 </div>
 
                   <div class="pull-right">
-                  <button class="btn btn-secondary btn-sm tableRowAddSupplier" id="tableRowAddSupplier8">
+                  <button class="btn btn-secondary btn-sm tableRowAddSupplier"  id="tableRowAddSupplier8">
                     <i class="fa fa-plus"></i> Add
                   </button>
                   <button class="btn btn-secondary btn-sm tableRowDeleteSupplier" id="tableRowDeleteSupplier8">
@@ -55,14 +57,14 @@
                   <table class="table" id="detailTableSupplier8">
                             <thead>
                               <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Supplier Name</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Quot. Unit Price</th>
-                                <th scope="col">Quot. Value</th>
-                                <th scope="col">Final Unit Price</th>
-                                <th scope="col">Final Value</th>
-                                <th scope="col">Nego(%)</th>
+                                  <th scope="col" style="width:20px">#</th>
+                                  <th scope="col">Supplier Name</th>
+                                  <th scope="col">Qty</th>
+                                  <th scope="col">Quot. Unit Price</th>
+                                  <th scope="col">Quot. Value</th>
+                                  <th scope="col">Final Unit Price</th>
+                                  <th scope="col">Final Value</th>
+                                  <th scope="col" style="width:5%">Nego(%)</th>
                             </tr>
                           </thead>
                             <tbody id="Supplier8">
@@ -72,36 +74,36 @@
                               {% endif %}
                             >
                               <th scope="row">1</th>
-                              <td><input type="text" class="Supplier8_1" id="nameSupplier8" value="{{Assay.Supplier8}}" size="8"></td>
-                              <td><input type="text" class="Supplier8_1" id="qtySupplier8_1" size="4" value="{{Assay.Supplier8_Qty}}"></td>
-                              <td><input class="Supplier8_1" id="quotValueSupplier8_1" size="5"></td>
-                              <td bgcolor="EEEEEE"  id="quotTotalValueSupplier8_1"   ></td>
-                              <td><input class="Supplier8_1" id="finalValueSupplier8_1" value="{{Assay.Supplier8_Final_Unit_Price}}" size="7"></td>
-                              <td bgcolor="EEEEEE"  id="finalTotalValueSupplier8_1"  ></td>
-                              <td bgcolor="EEEEEE" id="negoSupplier8_1"             ></td>
+                              <td><input type="text" class="Supplier8_1" id="nameSupplier8" value="{{Assay.Supplier8}}"></td>
+                              <td><input type="text" class="Supplier8_1" id="qtySupplier8_1" value="{{Assay.Supplier8_Qty}}"></td>
+                              <td><input class="Supplier8_1" id="quotValueSupplier8_1" ></td>
+                              <td id="quotTotalValueSupplier8_1"   ></td>
+                              <td><input class="Supplier8_1" id="finalValueSupplier8_1" value="{{Assay.Supplier8_Final_Unit_Price}}"></td>
+                              <td id="finalTotalValueSupplier8_1"  ></td>
+                              <td id="negoSupplier8_1"             ></td>
                             </tr>
 
-                            <tr hidden id="rowSupplier8_3">
+                            <tr bgcolor="eeeeee" hidden id="rowSupplier8_2">
                                 <th scope="row">2</th>
-                                <td><input type="text" size="8"></td>
-                                <td><input type="text" class="Supplier8_2" id="qtySupplier8_2" size="4"></td>
-                                <td><input class="Supplier8_2" id="quotValueSupplier8_2" size="5"></td>
-                                <td bgcolor="EEEEEE"  id="quotTotalValueSupplier8_2"></td>
-                                <td><input class="Supplier8_2" id="finalValueSupplier8_2"  size="7"></td>
-                                <td bgcolor="EEEEEE"  id="finalTotalValueSupplier8_2"></td>
-                                <td bgcolor="EEEEEE" id="negoSupplier8_2"></td>
+                                <td><input type="text" ></td>
+                                <td><input type="text" class="Supplier8_2" id="qtySupplier8_2"></td>
+                                <td><input class="Supplier8_2" id="quotValueSupplier8_2"></td>
+                                <td id="quotTotalValueSupplier8_2"></td>
+                                <td><input class="Supplier8_2" id="finalValueSupplier8_2"></td>
+                                <td id="finalTotalValueSupplier8_2"></td>
+                                <td id="negoSupplier8_2"></td>
 
                             </tr>
 
                             <tr hidden id="rowSupplier8_3">
                                 <th scope="row">3</th>
-                                <td><input type="text" size="8"></td>
-                                <td><input type="text" class="Supplier8_3" id="qtySupplier8_3" size="4"></td>
-                                <td><input class="Supplier8_3" id="quotValueSupplier8_3" size="5"></td>
-                                <td bgcolor="EEEEEE"  id="quotTotalValueSupplier8_3"></td>
-                                <td><input class="Supplier8_3" id="finalValueSupplier8_3"  size="7"></td>
-                                <td bgcolor="EEEEEE"  id="finalTotalValueSupplier8_3"></td>
-                                <td bgcolor="EEEEEE" id="negoSupplier8_3"></td>
+                                <td><input type="text" ></td>
+                                <td><input type="text" class="Supplier8_3" id="qtySupplier8_3"></td>
+                                <td><input class="Supplier8_3" id="quotValueSupplier8_3"></td>
+                                <td id="quotTotalValueSupplier8_3"></td>
+                                <td><input class="Supplier8_3" id="finalValueSupplier8_3"></td>
+                                <td id="finalTotalValueSupplier8_3"></td>
+                                <td id="negoSupplier8_3"></td>
 
                             </tr>
                           </tbody>
