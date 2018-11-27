@@ -30,13 +30,13 @@
         <div class="row form-group">
           <div class="col-md-1"><label for="text-input" class=" form-control-label">Details1</label></div>
           <div class="col-11">
-              <textarea class="form-control query">{% ifnotequal Assay.Details_1 'nan' %}{{ Assay.Details_1}}{% endifnotequal %}</textarea>
+              <textarea class="form-control query" disabled>{% ifnotequal Assay.Details_1 'nan' %}{{ Assay.Details_1}}{% endifnotequal %}</textarea>
           </div>
         </div>
         <div class="row form-group">
           <div class="col-md-1"><label for="text-input" class=" form-control-label">Details2</label></div>
           <div class="col-11">
-              <textarea class="form-control query">{% ifnotequal Assay.Details_2 'nan' %}{{ Assay.Details_2}}{% endifnotequal %}</textarea>
+              <textarea class="form-control query" disabled>{% ifnotequal Assay.Details_2 'nan' %}{{ Assay.Details_2}}{% endifnotequal %}</textarea>
           </div>
         </div>
     </div>
