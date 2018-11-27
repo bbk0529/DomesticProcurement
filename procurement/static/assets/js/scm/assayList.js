@@ -23,14 +23,25 @@ $(function(){
             success : function(data) {
                 console.log("successfully communicated with Server");
                 // console.log(data);
-                $("#result").html(
-                  ""
-                );
-                $("#result").html(
-                  data
-                );
+
+                $("#result").html(data);
+                $('textarea').each(function () {
+
+                    height=this.scrollHeight
+                   this.setAttribute('style', 'height:' + (height) + 'px;overflow-y:hidden;');
+                   // this.setAttribute('style', 'overflow-y:hidden;');
+                }).on('input', function () {
+                  this.style.height = 'auto';
+                  this.style.height = (this.scrollHeight) + 'px';
+                });
+
+
+
             }
         }) //end of $.ajax
     }
+
+
+
 
   });

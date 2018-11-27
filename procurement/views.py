@@ -68,7 +68,15 @@ def deleteRecord(request) :
 def approvalPlan(request):
     As=Assay.objects.all()
     ipAddress=get_client_ip(request)
+
     if request.user.username=='buyer':
+
+        # if request.method == 'GET':
+        #     SA_No=request.GET['SA_No'].strip()
+        #     print("READ ASSAY___",SA_No)
+        #     Ass=Assay.objects.get(SA_No=SA_No)
+
+
         return render(
             request, 'procurement/approvalPlan.html',{
             'assayList' : As,

@@ -189,8 +189,7 @@ $(function(){
     function query(assayNo){
         if (assayNo!='') {
             $('#radio_change').prop('checked', true)
-            $('#changeDocOptions').prop('hidden', false);
-            $('#newDocOptions').prop('hidden', true);
+
             console.log(assayNo);
             $.ajax({
                 url : "approvalPlanQuery",
@@ -203,7 +202,13 @@ $(function(){
                     $("#approvalPlanQuery").html(
                       data
                     );
+                    $('#changeDocOptions').prop('hidden', false);
+                    $('#newDocOptions').prop('hidden', true);
+                },
+                error: function(){
+                    console.log("error")
                 }
+
             }) //end of $.ajax
         }
     }

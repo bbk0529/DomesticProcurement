@@ -5,10 +5,38 @@
     <input type="text" id="text-input" name="SA_No" value="{{ Assay.SA_No}}"  class="form-control">
   </div>
   <div class="col-1"><label for="text-input" class=" form-control-label">Delivery<br></label></div>
-  <div class="col-3"><input type="text" id="text-input" name="Date"    value="{{ Assay.Date}}" class="form-control query"></div>
+  <div class="col-1"><input type="text" id="text-input" name="Date"    value="{{ Assay.Date}}" class="form-control query"></div>
   <div class="col-1"><label for="text-input" class=" form-control-label">Suppliers#</label></div>
-  <div class="col-3"><input type="text" id="Number_of_suppliers" name="Number_of_suppliers"   value="{{Assay.Number_of_suppliers}}"  class="form-control query"></div>
+  <div class="col-1"><input type="text" id="Number_of_suppliers" name="Number_of_suppliers"   value="{{Assay.Number_of_suppliers}}"  class="form-control query"></div>
 
+  <div class="col-3">
+
+      <label for="text-input" class=" form-control-label" >Category</label>
+      <select class="form-control-sm" id="newDocOptions">
+          <option>신규등록</option>
+      </select>
+
+      <select class="form-control-sm" id="changeDocOptions" hidden>
+          <option selected>{{Assay.Category}}</option>
+          {% ifnotequal Assay.Category '설계변경'%}
+          <option>설계변경</option>
+          {% endifnotequal %}
+
+          {% ifnotequal Assay.Category '공급사변경'%}
+          <option> 공급사변경</option>
+          {% endifnotequal %}
+
+          {% ifnotequal Assay.Category '원부자재비용변경'%}
+          <option>원부자재비용변경</option>
+          {% endifnotequal %}
+
+          {% ifnotequal Assay.Category '기타'%}
+          <option>기타</option>
+          {% endifnotequal %}
+      </select>
+
+
+</div>
 
 </div>
 <div class="row form-group">
