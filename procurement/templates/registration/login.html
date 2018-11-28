@@ -50,13 +50,15 @@ input {
           <div class="container">
               <div class="login-content">
                 <div class="login-logo">
-                  <div><img class="align-content" src="{% static 'images/festologo.jpg' %}"></div>
+                  <span>
+                      <img class="align-content" src="{% static 'images/festologo.jpg' %}">
+                </span>
               </div>
 
                   <img class="landscape" src="{% static 'images/robot.jpg' %}">
 
                   <div class="login-form">
-                      <h2>Login</h2>
+
                         <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
 
