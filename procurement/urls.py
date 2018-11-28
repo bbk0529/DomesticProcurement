@@ -20,8 +20,7 @@ urlpatterns=[
     url(r'^export/xls/log/$', views.export_log_xls, name='export_log_xls'),
     url('import_data_xls', views.import_data_xls, name='import_data_xls'),
     # url(r'^uploads/simple/$', views.upload, name='upload'),
-
-
+    
 ]
 
 

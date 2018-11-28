@@ -1,17 +1,84 @@
 <!-- templates/registration/login.html -->
+<style>
+form {
+  width: 480px;
+  height: 200px;
+  margin: auto;
+  position: relative;
+
+}
+input {
+  width: 460px;
+
+  /* height: 25px; */
+}
+
+#submit{
+    width:460px;
+}
+
+</style>
+
 
 {% extends 'procurement/base.html' %}
 {% load static %}
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div><img src="{% static 'images/festologo.jpg' %}"></div>
-    <h2>Login</h2>
-    <form method="post">
+
+    <!-- <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Login</button>
-    </form>
+  </form>
+ -->
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+      <!-- <div class="sufee-login d-flex align-content-center flex-wrap"> -->
+          <div class="container">
+              <div class="login-content">
+                <div class="login-logo">
+                  <div><img class="align-content" src="{% static 'images/festologo.jpg' %}"></div>
+              </div>
+
+                  <img class="landscape" src="{% static 'images/robot.jpg' %}">
+
+                  <div class="login-form">
+                      <h2>Login</h2>
+                        <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+
+
+                          <div class="form-group">
+                              {{ form.username.label_tag }}
+                              {{ form.username }}
+                          </div>
+
+                        <div class="form-group">
+                              {{ form.password.label_tag }}
+                              {{ form.password }}
+                          </div>
+
+                         <input type="submit" id="submit" value="login" class="btn btn-primary btn-flat m-b-30 m-t-30">
+                         <input type="hidden" name="next" value="{{ next }}" />
+                      </form>
+                 </div>
+          </div>
+      </div>
+
+
 
 
 
