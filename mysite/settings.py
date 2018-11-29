@@ -140,3 +140,4 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.17.193.118']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SESSION_SAVE_EVERY_REQUEST=True
