@@ -22,15 +22,14 @@ def import_data_xls(request):
         'Description',
         'Category',
         'Updated_date',
-        'Supplier1_Fabricating_Goods','Supplier1_Modification_of_free_offerd_item','Supplier1_Qty','Supplier1_Final_Unit_Price','Supplier1',
-        'Supplier2_Fabricating_Goods','Supplier2_Modification_of_free_offerd_item','Supplier2_Qty','Supplier2_Final_Unit_Price','Supplier2',
-        'Supplier3_Fabricating_Goods','Supplier3_Modification_of_free_offerd_item','Supplier3_Qty','Supplier3_Final_Unit_Price','Supplier3',
-        'Supplier4_Fabricating_Goods','Supplier4_Modification_of_free_offerd_item','Supplier4_Qty','Supplier4_Final_Unit_Price','Supplier4',
-        'Supplier5_Fabricating_Goods','Supplier5_Modification_of_free_offerd_item','Supplier5_Qty','Supplier5_Final_Unit_Price','Supplier5',
-        'Supplier6_Fabricating_Goods','Supplier6_Modification_of_free_offerd_item','Supplier6_Qty','Supplier6_Final_Unit_Price','Supplier6',
-        'Supplier7_Fabricating_Goods','Supplier7_Modification_of_free_offerd_item','Supplier7_Qty','Supplier7_Final_Unit_Price','Supplier7',
-        'Supplier8_Fabricating_Goods','Supplier8_Modification_of_free_offerd_item','Supplier8_Qty','Supplier8_Final_Unit_Price','Supplier8',
-
+        'Supplier1','Supplier1_Fabricating_Goods','Supplier1_Modification_of_free_offerd_item','Supplier1_Qty','Supplier1_Final_Unit_Price',
+        'Supplier2','Supplier2_Fabricating_Goods','Supplier2_Modification_of_free_offerd_item','Supplier2_Qty','Supplier2_Final_Unit_Price',
+        'Supplier3','Supplier3_Fabricating_Goods','Supplier3_Modification_of_free_offerd_item','Supplier3_Qty','Supplier3_Final_Unit_Price',
+        'Supplier4','Supplier4_Fabricating_Goods','Supplier4_Modification_of_free_offerd_item','Supplier4_Qty','Supplier4_Final_Unit_Price',
+        'Supplier5','Supplier5_Fabricating_Goods','Supplier5_Modification_of_free_offerd_item','Supplier5_Qty','Supplier5_Final_Unit_Price',
+        'Supplier6','Supplier6_Fabricating_Goods','Supplier6_Modification_of_free_offerd_item','Supplier6_Qty','Supplier6_Final_Unit_Price',
+        'Supplier7','Supplier7_Fabricating_Goods','Supplier7_Modification_of_free_offerd_item','Supplier7_Qty','Supplier7_Final_Unit_Price',
+        'Supplier8','Supplier8_Fabricating_Goods','Supplier8_Modification_of_free_offerd_item','Supplier8_Qty','Supplier8_Final_Unit_Price',
     ]
     for i,v in df.iterrows() :
         print(i)

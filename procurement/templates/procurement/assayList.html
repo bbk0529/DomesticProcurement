@@ -12,7 +12,7 @@
     }
 
     th, td {
-        
+
         border: 1px solid black;
         width: 100px;
     }
@@ -51,8 +51,10 @@
                                     <ul class="nav nav-tabs active" id="myTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="home-tab" href="/" >List   </a>
+
                                         </li>
-                                        {% ifequal request.user.username 'buyer' %}
+                                        {% if request.user.username == "buyer" or request.user.username == "cjlee" or   request.user.username == "ejkim" or request.user.username == "shji" %}
+
                                         <li class="nav-item">
                                             <a class="nav-link" id="profile-tab"  href="/approvalPlan">Approval</a>
                                         </li>
@@ -62,7 +64,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" id="setting" href="/setting">Setting</a>
                                         </li>
-                                        {% endifequal %}
+                                        {% endif  %}
                                     </ul>
 
                                 <div class="tab-content pl-3 p-1" id="myTabContent">

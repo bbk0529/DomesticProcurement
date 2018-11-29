@@ -24,7 +24,7 @@ def deleteRecord(request) :
     As=Assay.objects.all()
     ipAddress=get_client_ip(request)
 
-    if request.user.username=='buyer' or 'cjlee' or 'ejkim' or 'shji':
+    if request.user.username=='buyer' or request.user.username=='cjlee' or request.user.username=='ejkim' or request.user.username=='shji':
         ChangeLog.objects.create(
             SA_No=SA_No,
             DateTime=datetime.datetime.now(),
@@ -46,22 +46,6 @@ def deleteRecord(request) :
     else:
         return redirect('/')
 
-# Create your views here.
-# As=Assay.objects.order_by('SA_No')[:20]#
-# ############################################
-# def setting(request):
-#     ipAddress=get_client_ip(request)
-#     if request.user.username=='buyer':
-#         return render(
-#             request, 'procurement/setting.html',{
-#             'assayList' : As,
-#             'ipAddress' : ipAddress
-#             }
-#         )
-#     else:
-#         return redirect('/')
-
-
 #######################################
 # MAIN default                        #
 #######################################
@@ -69,7 +53,7 @@ def approvalPlan(request):
     As=Assay.objects.all()
     ipAddress=get_client_ip(request)
 
-    if request.user.username=='buyer' or 'cjlee' or 'ejkim' or 'shji':
+    if request.user.username=='buyer' or request.user.username=='cjlee' or request.user.username=='ejkim' or request.user.username=='shji':
 
         # if request.method == 'GET':
         #     SA_No=request.GET['SA_No'].strip()
@@ -133,7 +117,7 @@ def approvalPlanCreate(request):
 #########################################################
 def changeLog(request):
     ipAddress=get_client_ip(request)
-    if request.user.username=='buyer' or 'cjlee' or 'ejkim' or 'shji':
+    if request.user.username=='buyer' or request.user.username=='cjlee' or request.user.username=='ejkim' or request.user.username=='shji':
         changeLog=ChangeLog.objects.order_by('-DateTime','SA_No')
         return render(
             request, 'procurement/changeLog.html',{
@@ -155,14 +139,17 @@ def get_client_ip(request):
 import pandas as pd
 def setting(request):
     print('simple load')
-    if request.method == 'POST' and request.FILES['myfile']:
-        print('post received')
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
+    if request.user.username=='buyer' or request.user.username=='cjlee' or request.user.username=='ejkim' or request.user.username=='shji':
+        if request.method == 'POST' and request.FILES['myfile']:
+            print('post received')
+            myfile = request.FILES['myfile']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
 
-        uploaded_file_url = fs.url(filename)
-        return render(request, 'procurement/setting.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-    return render(request, 'procurement/setting.html')
+            uploaded_file_url = fs.url(filename)
+            return render(request, 'procurement/setting.html', {
+                'uploaded_file_url': uploaded_file_url
+            })
+        return render(request, 'procurement/setting.html')    
+    else:
+        return redirect('/')
