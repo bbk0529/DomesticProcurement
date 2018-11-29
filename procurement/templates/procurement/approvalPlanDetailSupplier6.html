@@ -7,9 +7,10 @@
       </div>
 
       <div class="card-body card-block"  id="detailSupplier6"
-          {% if not Assay.Supplier6 %}
-            hidden
-          {% endif %}
+      {% if Assay.Supplier6 or Assay.Supplier6_Qty or Assay.Supplier6QuotValue or Assay.Supplier6_Final_Unit_Price or Assay.Supplier6_Modification_of_free_offerd_item or Assay.Supplier6_Modification_of_free_offerd_item%}
+      {%else%}
+        hidden="true"
+      {% endif %}
       >
                 <div class="row form-group">
                   <div class="col-3"><label for="text-input" class=" form-control-label"  >Quotation Info.2</label></div>
@@ -69,9 +70,10 @@
                           </thead>
                             <tbody id="Supplier6">
                             <tr id="rowSupplier6_1"
-                              {% if not Assay.Supplier6 %}
-                              hidden
-                              {% endif %}
+                            {% if Assay.Supplier6 or Assay.Supplier6_Qty or Assay.Supplier6QuotValue or Assay.Supplier6_Final_Unit_Price %}
+                            {%else%}
+                              hidden="true"
+                            {% endif %}
                             >
                               <th scope="row">1</th>
                               <td><input type="text" class="Supplier6_1" id="nameSupplier6" value="{{Assay.Supplier6}}"></td>

@@ -1,21 +1,33 @@
 {%load static %}
 {#% load mathfilters %#}
 
+
+
         <div class="row">
             <div class="col-12">
                 {% include 'procurement/approvalPlanDetail.html' %}
+
+                <br/><br/>
                 {% include 'procurement/approvalPlanTable.html' %}
 
             </div>
         </div>
 
-        <strong><h4>Details</h4></strong>
+
+
+
+<br/><br/>
+
+        <div class="alert alert-secondary">
+            <strong><h4>Details</h4></strong>
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier1.html' %}</div>
                 <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier2.html' %}</div>
                 <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier3.html' %}</div>
-                <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier4.html' %}</div>                
+                <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier4.html' %}</div>
                 <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier5.html' %}</div>
                 <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier6.html' %}</div>
                 <div class="col-12">{% include 'procurement/approvalPlanDetailSupplier7.html' %}</div>

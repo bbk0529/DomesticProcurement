@@ -1,4 +1,11 @@
-<strong><h4>Summary</h4></strong><div class="pull-right">Currency : KRW</div>
+<!-- <button type="button" class="btn btn-primary m-l-10 m-b-10">Summary </button> -->
+
+<div class="alert alert-primary">
+    <strong><h4>Summary</h4></strong>
+    <div class="pull-right">Currency : KRW</div>
+</div>
+
+
 
 <div class="col-12">
 <table class="table" id="summaryTable">
@@ -15,9 +22,10 @@
           </tr>
         </thead>
         <tbody id="supplier">
-        <tr  bgcolor="eeeeee" id="summaryTableSupplier1"
-            {% if not Assay.Supplier1 %}
-            hidden
+        <tr bgcolor="eeeeee" id="summaryTableSupplier1"
+            {% if Assay.Supplier1 or Assay.Supplier1_Qty or Assay.supplier1QuotValue or Assay.Supplier1_Final_Unit_Price%}
+            {%else%}
+                hidden="true"
             {% endif %}
         >
           <th scope="row">1</th>
@@ -31,9 +39,10 @@
         </tr>
 
         <tr id="summaryTableSupplier2"
-          {% if not Assay.Supplier2 %}
-          hidden
-          {% endif %}
+            {% if Assay.Supplier2 or Assay.Supplier2_Qty or Assay.supplier2QuotValue or Assay.Supplier2_Final_Unit_Price%}
+            {%else%}
+                hidden="true"
+            {% endif %}
         >
           <th scope="row">2</th>
           <td id="Supplier2">{{Assay.Supplier2}}</td>
@@ -47,9 +56,10 @@
 
 
         <tr bgcolor="eeeeee" id="summaryTableSupplier3"
-          {% if not Assay.Supplier3 %}
-          hidden
-          {% endif %}
+        {% if Assay.Supplier3 or Assay.Supplier3_Qty or Assay.supplier3QuotValue or Assay.Supplier3_Final_Unit_Price%}
+        {%else%}
+            hidden="true"
+        {% endif %}
         >
             <th scope="row">3</th>
             <td  id="Supplier3">{{Assay.Supplier3}}</td>
@@ -63,9 +73,10 @@
         </tr>
 
         <tr id="summaryTableSupplier4"
-          {% if not Assay.Supplier4 %}
-          hidden
-          {% endif %}
+        {% if Assay.Supplier4 or Assay.Supplier4_Qty or Assay.supplier4QuotValue or Assay.Supplier4_Final_Unit_Price%}
+        {%else%}
+            hidden="true"
+        {% endif %}
         >
             <th scope="row">4</th>
             <td  id="Supplier4">{{Assay.Supplier4}}</td>
@@ -78,9 +89,10 @@
         </tr>
 
         <tr   bgcolor="eeeeee"  id="summaryTableSupplier5"
-          {% if not Assay.Supplier5 %}
-          hidden
-          {% endif %}
+        {% if Assay.Supplier5 or Assay.Supplier5_Qty or Assay.supplier5QuotValue or Assay.Supplier5_Final_Unit_Price%}
+        {%else%}
+            hidden="true"
+        {% endif %}
         >
             <th scope="row">5</th>
             <td  id="Supplier5">{{Assay.Supplier5}}</td>
@@ -93,9 +105,10 @@
         </tr>
 
         <tr id="summaryTableSupplier6"
-          {% if not Assay.Supplier6 %}
-          hidden
-          {% endif %}
+        {% if Assay.Supplier6 or Assay.Supplier6_Qty or Assay.supplier6QuotValue or Assay.Supplier6_Final_Unit_Price%}
+        {%else%}
+            hidden="true"
+        {% endif %}
         >
             <th scope="row">6</th>
             <td  id="Supplier6">{{Assay.Supplier6}}</td>
@@ -108,9 +121,10 @@
         </tr>
 
         <tr   bgcolor="eeeeee" id="summaryTableSupplier7"
-          {% if not Assay.Supplier7 %}
-          hidden
-          {% endif %}
+        {% if Assay.Supplier7 or Assay.Supplier7_Qty or Assay.supplier7QuotValue or Assay.Supplier7_Final_Unit_Price%}
+        {%else%}
+            hidden="true"
+        {% endif %}
         >
             <th scope="row">7</th>
             <td  id="Supplier7">{{Assay.Supplier7}}</td>
@@ -123,9 +137,10 @@
         </tr>
 
         <tr id="summaryTableSupplier8"
-          {% if not Assay.Supplier8 %}
-          hidden
-          {% endif %}
+        {% if Assay.Supplier8 or Assay.Supplier8_Qty or Assay.supplier8QuotValue or Assay.Supplier8_Final_Unit_Price%}
+        {%else%}
+            hidden="true"
+        {% endif %}
         >
             <th scope="row">8</th>
             <td  id="Supplier8">{{Assay.Supplier8}}</td>

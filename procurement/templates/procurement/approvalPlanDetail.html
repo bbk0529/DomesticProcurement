@@ -1,8 +1,13 @@
+<style type="text/css">
+ .bold{
+   font-weight: bold;
+ }
+</style>
 
 <div class="row form-group">
   <div class="col-1"><label for="text-input" class=" form-control-label"  >SA</label></div>
   <div class="col-3">
-    <input type="text" id="text-input" name="SA_No" value="{{ Assay.SA_No}}"  class="form-control">
+    <input type="text" id="text-input" name="SA_No" value="{{ Assay.SA_No}}"  class="form-control bold">
   </div>
   <div class="col-1"><label for="text-input" class=" form-control-label">Delivery<br></label></div>
   <div class="col-1"><input type="text" id="text-input" name="Date"    value="{{ Assay.Date}}" class="form-control query"></div>
@@ -45,7 +50,7 @@
     {% ifnotequal Assay.Type 'nan' %}
       value="{{ Assay.Type}}"
     {% endifnotequal %}
-     class="form-control query">
+     class="form-control query  bold">
 
  </div>
 </div>
