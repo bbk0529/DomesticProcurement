@@ -24,7 +24,7 @@ def deleteRecord(request) :
     As=Assay.objects.all()
     ipAddress=get_client_ip(request)
 
-    if request.user.username=='buyer':
+    if request.user.username=='buyer' or 'cjlee' or 'ejkim' or 'shji':
         ChangeLog.objects.create(
             SA_No=SA_No,
             DateTime=datetime.datetime.now(),
@@ -69,7 +69,7 @@ def approvalPlan(request):
     As=Assay.objects.all()
     ipAddress=get_client_ip(request)
 
-    if request.user.username=='buyer':
+    if request.user.username=='buyer' or 'cjlee' or 'ejkim' or 'shji':
 
         # if request.method == 'GET':
         #     SA_No=request.GET['SA_No'].strip()
@@ -133,7 +133,7 @@ def approvalPlanCreate(request):
 #########################################################
 def changeLog(request):
     ipAddress=get_client_ip(request)
-    if request.user.username=='buyer':
+    if request.user.username=='buyer' or 'cjlee' or 'ejkim' or 'shji':
         changeLog=ChangeLog.objects.order_by('-DateTime','SA_No')
         return render(
             request, 'procurement/changeLog.html',{
