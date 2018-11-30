@@ -7,8 +7,7 @@ def import_data_xls(request):
     uploaded_file_url=request.GET['uploaded_file_url'].strip()
     print(uploaded_file_url)
 
-
-    df=pd.read_excel('/dev/DomesticProcurement' + uploaded_file_url)
+    df=pd.read_excel('/dev/DomesticProcurement' + uploaded_file_url, dtype="object")
     print(df)
     df=df.fillna('')
     Assay.objects.all().delete()

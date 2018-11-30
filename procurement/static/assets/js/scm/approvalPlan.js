@@ -207,6 +207,7 @@ $(function(){
                 },
                 error: function(){
                     console.log("error")
+                    alert('The requested partNo is not seachable. Please register new partnr');
                 }
 
             }) //end of $.ajax
