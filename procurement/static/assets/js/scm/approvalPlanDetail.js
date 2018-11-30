@@ -433,17 +433,15 @@ function supplierDetailMath(supplierNo, detailNo){
           $('#quotValueSupplier' + supplierNo +'_' + detailNo).val('')
       }
 
-
-
-    $('#finalValueSupplier' + supplierNo +'_' + detailNo).val(
-
-        parseInt(
-            $('#finalValueSupplier' + supplierNo +'_' + detailNo)
-            .val()
-            .replace(/,/g,"")
-        ).toLocaleString()
-    )
-
+      if (isNaN($('#finalValueSupplier' + supplierNo +'_' + detailNo).val().replace(/,/g,""))==false){
+            $('#finalValueSupplier' + supplierNo +'_' + detailNo).val(
+                parseInt(
+                    $('#finalValueSupplier' + supplierNo +'_' + detailNo)
+                    .val()
+                    .replace(/,/g,"")
+                ).toLocaleString()
+            )
+        }
 
     if($('#finalValueSupplier' + supplierNo +'_' + detailNo).val()=='NaN'){
         $('#finalValueSupplier' + supplierNo +'_' + detailNo).val('')
