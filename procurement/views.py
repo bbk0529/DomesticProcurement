@@ -138,6 +138,9 @@ def get_client_ip(request):
 
 import pandas as pd
 def setting(request):
+
+
+
     print('simple load')
     if request.user.username=='buyer' or request.user.username=='cjlee' or request.user.username=='ejkim' or request.user.username=='shji':
         if request.method == 'POST' and request.FILES['myfile']:
@@ -150,6 +153,6 @@ def setting(request):
             return render(request, 'procurement/setting.html', {
                 'uploaded_file_url': uploaded_file_url
             })
-        return render(request, 'procurement/setting.html')    
+        return render(request, 'procurement/setting.html')
     else:
         return redirect('/')
