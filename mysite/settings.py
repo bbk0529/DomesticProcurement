@@ -136,7 +136,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 DATE_FORMAT='y-m-d'
 DATETIME_FORMAT='Y-m-d H:m:s'
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.17.193.118']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.17.193.118', '172.17.193.119', '172.17.193.137']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
